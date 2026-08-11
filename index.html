@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>일본 여행 필수 회화</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f5f0;--bg2:#ffffff;--bg3:#f0f0eb;--border:#e0ddd6;--text:#1a1a1a;--muted:#888;--accent:#b8860b;--green:#2d8a5e;--red:#c0392b;--blue:#2563a8;--purple:#6b46c1}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--text);font-family:"Noto Sans KR",sans-serif;font-weight:300;line-height:1.6;max-width:480px;margin:0 auto;min-height:100vh;padding-bottom:80px}
+
+/* HERO */
+.hero{padding:44px 20px 28px;background:linear-gradient(160deg,#fafaf5 60%,#f5f0e0)}
+.hero-label{font-size:10px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:8px;opacity:.9}
+.hero-title{font-size:26px;font-weight:700;line-height:1.2;margin-bottom:4px;color:var(--text)}
+.hero-title em{font-style:normal;color:var(--accent)}
+.hero-sub{font-size:12px;color:var(--muted)}
+
+/* NAV */
+.nav-wrap{position:sticky;top:0;z-index:100;background:rgba(245,245,240,.97);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border)}
+.nav{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 8px}
+.nav::-webkit-scrollbar{display:none}
+.nav-btn{flex-shrink:0;padding:11px 13px 9px;font-size:12px;color:var(--muted);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:"Noto Sans KR",sans-serif;white-space:nowrap;transition:all .2s}
+.nav-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* SECTION */
+.section{display:none;padding:0 16px 20px}
+.section.active{display:block}
+.sec-title{font-size:18px;font-weight:700;padding:20px 0 14px;color:var(--text)}
+.sec-title span{color:var(--accent)}
+
+
+.main-nav{border-bottom:none!important;padding:0 8px}
+.main-btn{font-size:14px!important;font-weight:500!important;padding:12px 20px 10px!important}
+.sub-nav{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 8px 0;border-top:0.5px solid var(--border);background:var(--bg3)}
+.sub-nav::-webkit-scrollbar{display:none}
+.sub-btn{flex-shrink:0;padding:8px 12px;font-size:11px;color:var(--muted);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:"Noto Sans KR",sans-serif;white-space:nowrap;transition:all .2s}
+.sub-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+/* 검색 */
+.search-wrap{position:relative;margin-bottom:14px}
+.search-input{width:100%;padding:10px 14px 10px 36px;background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;font-size:13px;font-family:"Noto Sans KR",sans-serif;color:var(--text);outline:none;transition:border-color .2s}
+.search-input:focus{border-color:var(--accent)}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--muted)}
+
+/* 카드 */
+.phrase-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;padding:14px 15px;margin-bottom:8px;cursor:pointer;transition:all .15s;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.phrase-card:active{background:var(--bg3)}
+.phrase-card.flipped{background:var(--bg3);border-color:var(--accent)}
+.phrase-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.phrase-ko{font-size:14px;font-weight:500;color:var(--text);margin-bottom:3px}
+.phrase-jp{font-size:16px;font-weight:700;color:var(--accent)}
+.phrase-roma{font-size:11px;color:var(--muted);margin-top:2px}
+.phrase-tip{font-size:11px;color:var(--blue);margin-top:6px;padding-top:6px;border-top:0.5px solid var(--border);display:none;line-height:1.6}
+.phrase-card.flipped .phrase-tip{display:block}
+.flip-hint{font-size:10px;color:var(--muted);flex-shrink:0;margin-top:3px}
+.cat-badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:6px;margin-bottom:6px;font-weight:500}
+
+/* 플래시카드 모드 */
+.flash-wrap{display:none;padding:16px}
+.flash-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:16px;padding:40px 24px;text-align:center;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.08);transition:all .2s;margin-bottom:16px}
+.flash-card:active{transform:scale(.98)}
+.flash-q{font-size:22px;font-weight:700;color:var(--text);margin-bottom:8px}
+.flash-hint{font-size:12px;color:var(--muted)}
+.flash-a{display:none;margin-top:16px;border-top:0.5px solid var(--border);padding-top:16px;width:100%}
+.flash-a.show{display:block}
+.flash-jp{font-size:26px;font-weight:700;color:var(--accent);margin-bottom:4px}
+.flash-roma{font-size:13px;color:var(--muted)}
+.flash-btns{display:flex;gap:8px}
+.flash-btn{flex:1;padding:12px;border-radius:10px;border:none;font-size:13px;font-weight:500;cursor:pointer;font-family:"Noto Sans KR",sans-serif;transition:opacity .15s}
+.flash-btn:active{opacity:.8}
+.flash-progress{text-align:center;font-size:12px;color:var(--muted);margin-bottom:12px}
+.flash-prog-bar{height:4px;background:var(--border);border-radius:2px;overflow:hidden;margin-bottom:16px}
+.flash-prog-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .3s}
+
+/* 빈 검색 결과 */
+.empty{text-align:center;padding:40px 20px;color:var(--muted);font-size:13px}
+
+/* 하단 네비 */
+.bnav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:rgba(245,245,240,.97);backdrop-filter:blur(16px);border-top:0.5px solid var(--border);display:flex;padding:8px 0 16px;z-index:200}
+.bnav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:none;cursor:pointer;font-family:"Noto Sans KR",sans-serif;padding:4px 0}
+.bnav-icon{font-size:20px;line-height:1}
+.bnav-label{font-size:10px;color:var(--muted);transition:color .2s}
+.bnav-btn.active .bnav-label{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-label">Japan Travel</div>
+  <div class="hero-title">일본 여행 <em>필수 회화</em></div>
+  <div class="hero-sub">카드 탭하면 사용 팁이 나와요 · 플래시카드로 연습도 가능!</div>
+</div>
+
+<div class="nav-wrap">
+  <!-- 메인 3탭 -->
+  <div class="nav main-nav">
+    <button class="nav-btn main-btn active" onclick="showMain('phrase',this)">📖 회화</button>
+    <button class="nav-btn main-btn" onclick="showMain('word',this)">📝 단어</button>
+    <button class="nav-btn main-btn" onclick="showMain('flash',this)">🃏 플래시카드</button>
+  </div>
+  <!-- 회화 서브탭 -->
+  <div class="sub-nav" id="subnav-phrase">
+    <button class="sub-btn active" onclick="showTab('all',this,'phrase')">전체</button>
+    <button class="sub-btn" onclick="showTab('basic',this,'phrase')">👋 기본인사</button>
+    <button class="sub-btn" onclick="showTab('food',this,'phrase')">🍽 식당</button>
+    <button class="sub-btn" onclick="showTab('shop',this,'phrase')">🛍 쇼핑</button>
+    <button class="sub-btn" onclick="showTab('move',this,'phrase')">🚆 이동</button>
+    <button class="sub-btn" onclick="showTab('hotel',this,'phrase')">🏨 숙소</button>
+    <button class="sub-btn" onclick="showTab('emergency',this,'phrase')">🚨 긴급</button>
+  </div>
+  <!-- 단어 서브탭 -->
+  <div class="sub-nav" id="subnav-word" style="display:none">
+    <button class="sub-btn active" onclick="showTab('wfood',this,'word')">🍜 음식</button>
+    <button class="sub-btn" onclick="showTab('wmove',this,'word')">🚇 교통</button>
+    <button class="sub-btn" onclick="showTab('wshop',this,'word')">🛍 쇼핑</button>
+    <button class="sub-btn" onclick="showTab('wtour',this,'word')">🗺 관광</button>
+    <button class="sub-btn" onclick="showTab('wcvs',this,'word')">🏪 편의점</button>
+  </div>
+</div>
+
+<!-- 전체 / 카테고리 섹션 -->
+<div id="tab-all" class="section active">
+  <div class="sec-title">전체 <span>회화</span></div>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" type="text" placeholder="한국어 또는 일본어로 검색..." oninput="searchPhrases(this.value)" id="searchInput">
+  </div>
+  <div id="phraseList"></div>
+</div>
+
+<div id="tab-basic" class="section">
+  <div class="sec-title">기본 <span>인사</span></div>
+  <div id="list-basic"></div>
+</div>
+<div id="tab-food" class="section">
+  <div class="sec-title">식당 <span>회화</span></div>
+  <div id="list-food"></div>
+</div>
+<div id="tab-shop" class="section">
+  <div class="sec-title">쇼핑 <span>회화</span></div>
+  <div id="list-shop"></div>
+</div>
+<div id="tab-move" class="section">
+  <div class="sec-title">이동 <span>회화</span></div>
+  <div id="list-move"></div>
+</div>
+<div id="tab-hotel" class="section">
+  <div class="sec-title">숙소 <span>회화</span></div>
+  <div id="list-hotel"></div>
+</div>
+<div id="tab-emergency" class="section">
+  <div class="sec-title">긴급 <span>상황</span></div>
+  <div id="list-emergency"></div>
+</div>
+
+
+<!-- 단어 탭 섹션 -->
+<div id="tab-wfood" class="section">
+  <div class="sec-title">음식 <span>단어</span></div>
+  <div id="list-wfood"></div>
+</div>
+<div id="tab-wmove" class="section">
+  <div class="sec-title">교통 <span>단어</span></div>
+  <div id="list-wmove"></div>
+</div>
+<div id="tab-wshop" class="section">
+  <div class="sec-title">쇼핑 <span>단어</span></div>
+  <div id="list-wshop"></div>
+</div>
+<div id="tab-wtour" class="section">
+  <div class="sec-title">관광 <span>단어</span></div>
+  <div id="list-wtour"></div>
+</div>
+<div id="tab-wcvs" class="section">
+  <div class="sec-title">편의점 <span>단어</span></div>
+  <div id="list-wcvs"></div>
+</div>
+
+<!-- 플래시카드 -->
+<div id="tab-flash" class="section">
+  <div class="sec-title">🃏 <span>플래시카드</span></div>
+  <div class="flash-progress" id="flashProgress">0 / 0</div>
+  <div class="flash-prog-bar"><div class="flash-prog-fill" id="flashFill" style="width:0%"></div></div>
+  <div class="flash-card" id="flashCard" onclick="revealFlash()">
+    <div class="flash-q" id="flashQ">탭해서 시작!</div>
+    <div class="flash-hint" id="flashHint">한국어를 보고 일본어로 말해보세요</div>
+    <div class="flash-a" id="flashA">
+      <div class="flash-jp" id="flashJP"></div>
+      <div class="flash-roma" id="flashRoma"></div>
+    </div>
+  </div>
+  <div class="flash-btns">
+    <button class="flash-btn" style="background:#fde8e8;color:#c0392b" onclick="nextFlash(false)">😅 다시</button>
+    <button class="flash-btn" style="background:#e8f5e9;color:#2d8a5e" onclick="nextFlash(true)">✅ 알았어!</button>
+  </div>
+</div>
+
+<!-- 하단 네비 -->
+<div class="bnav">
+  <button class="bnav-btn active" onclick="showMain('phrase',this)"><span class="bnav-icon">📖</span><span class="bnav-label">회화</span></button>
+  <button class="bnav-btn" onclick="showMain('word',this)"><span class="bnav-icon">📝</span><span class="bnav-label">단어</span></button>
+  <button class="bnav-btn" onclick="showMain('flash',this)"><span class="bnav-icon">🃏</span><span class="bnav-label">연습</span></button>
+</div>
+
+<script>
+var phrases = [
+  // 기본 인사
+  {cat:'basic', icon:'👋', ko:'안녕하세요', jp:'こんにちは', roma:'곤니치와', tip:'낮 인사. 아침엔 おはようございます(오하요우 고자이마스), 저녁엔 こんばんは(곤반와)'},
+  {cat:'basic', icon:'🙏', ko:'감사합니다', jp:'ありがとうございます', roma:'아리가토우 고자이마스', tip:'가볍게는 ありがとう(아리가토우)만 써도 OK. 가게에선 직원이 먼저 인사하면 이걸로 답하세요'},
+  {cat:'basic', icon:'😅', ko:'죄송합니다 / 실례합니다', jp:'すみません', roma:'스미마센', tip:'사람 지나칠 때, 직원 부를 때, 가볍게 사과할 때 모두 사용. 일본 여행 중 가장 많이 쓰는 말!'},
+  {cat:'basic', icon:'👍', ko:'괜찮습니다 / 됐어요', jp:'大丈夫です', roma:'다이죠부데스', tip:'뭔가 권유받았을 때 정중히 거절하거나 괜찮다고 할 때 사용'},
+  {cat:'basic', icon:'❓', ko:'모르겠습니다', jp:'わかりません', roma:'와카리마센', tip:'언어가 안 통할 때 솔직하게 이 말을 하면 상대방이 다른 방법을 찾아줘요'},
+  {cat:'basic', icon:'🇰🇷', ko:'한국어 할 수 있는 분 있나요?', jp:'韓国語ができる方はいますか？', roma:'칸코쿠고가 데키루 카타와 이마스카?', tip:'큰 백화점이나 관광지에서 한국어 직원을 찾을 때 유용해요'},
+  {cat:'basic', icon:'📸', ko:'사진 찍어주실 수 있나요?', jp:'写真を撮っていただけますか？', roma:'샤신오 톳테 이타다케마스카?', tip:'여행 인증샷 찍을 때 필수!'},
+  {cat:'basic', icon:'🔄', ko:'한 번 더 말씀해 주세요', jp:'もう一度言ってください', roma:'모우 이치도 잇테 쿠다사이', tip:'상대방 말을 못 알아들었을 때 자연스럽게 쓸 수 있어요'},
+
+  // 식당
+  {cat:'food', icon:'🪑', ko:'(몇 명) 명입니다', jp:'〇人です', roma:'〇닌 데스', tip:'1명=히토리, 2명=후타리, 3명=산닌, 4명=요닌. 입장 시 인원 물어보면 손가락으로 보여줘도 OK'},
+  {cat:'food', icon:'🍽', ko:'이것으로 주세요', jp:'これをください', roma:'코레오 쿠다사이', tip:'메뉴판 보고 손가락으로 가리키며 이 말만 해도 주문 완료!'},
+  {cat:'food', icon:'📋', ko:'메뉴판 주세요', jp:'メニューをください', roma:'메뉴오 쿠다사이', tip:'영어 메뉴판은 "英語のメニューをください(에이고노 메뉴오 쿠다사이)"'},
+  {cat:'food', icon:'💳', ko:'카드 결제 되나요?', jp:'カードで払えますか？', roma:'카도데 하라에마스카?', tip:'일본은 현금 선호 가게가 많아요. 미리 확인하는 게 좋아요'},
+  {cat:'food', icon:'🧾', ko:'계산서 주세요', jp:'お会計をお願いします', roma:'오카이케이오 오네가이시마스', tip:'손을 들고 이 말을 하거나 "계산서"라고 써진 버튼을 누르면 돼요'},
+  {cat:'food', icon:'🔖', ko:'영수증 주세요', jp:'領収書をください', roma:'료슈쇼오 쿠다사이', tip:'면세 신청할 때 영수증 필요할 수 있어요'},
+  {cat:'food', icon:'🥢', ko:'맛있어요!', jp:'おいしい！', roma:'오이시이!', tip:'식당 분위기 밝아지는 마법의 말. 진심으로 맛있을 때 꼭 써보세요 😊'},
+  {cat:'food', icon:'🚫', ko:'~는 못 먹어요 (알레르기)', jp:'〇〇アレルギーがあります', roma:'〇〇 아레루기가 아리마스', tip:'새우=에비, 땅콩=나츠, 유제품=뉴세이힌, 밀가루=코무기'},
+  {cat:'food', icon:'🥡', ko:'포장해 주세요', jp:'持ち帰りでお願いします', roma:'모치카에리데 오네가이시마스', tip:'테이크아웃 주문할 때 사용'},
+  {cat:'food', icon:'➕', ko:'~하나 더 주세요', jp:'〇〇をもう一つください', roma:'〇〇오 모우 히토츠 쿠다사이', tip:'물=오미즈, 밥=고한, 맥주=비루'},
+
+  // 쇼핑
+  {cat:'shop', icon:'💰', ko:'얼마예요?', jp:'いくらですか？', roma:'이쿠라데스카?', tip:'가격표가 없을 때 사용. 일본은 대부분 가격표가 있어서 많이 쓸 일은 없어요'},
+  {cat:'shop', icon:'👀', ko:'구경만 하는 거예요', jp:'見ているだけです', roma:'미테이루다케데스', tip:'점원이 도움 필요하냐고 물을 때. 부담 없이 둘러보고 싶을 때 사용'},
+  {cat:'shop', icon:'🛍', ko:'이거 주세요', jp:'これをください', roma:'코레오 쿠다사이', tip:'계산대에서 살 물건을 내밀며 말하면 돼요'},
+  {cat:'shop', icon:'📦', ko:'다른 색상 있나요?', jp:'他の色はありますか？', roma:'호카노 이로와 아리마스카?', tip:'사이즈는 "サイズ(사이즈)", 종류는 "種類(슈루이)"'},
+  {cat:'shop', icon:'🔄', ko:'교환할 수 있나요?', jp:'交換できますか？', roma:'코우칸 데키마스카?', tip:'일본은 영수증 있으면 교환 가능한 경우가 많아요'},
+  {cat:'shop', icon:'🎁', ko:'선물 포장해 주세요', jp:'プレゼント用に包んでください', roma:'푸레젠토요니 츠츤데 쿠다사이', tip:'일본 백화점은 예쁘게 포장해줘요'},
+  {cat:'shop', icon:'🧴', ko:'면세 되나요?', jp:'免税できますか？', roma:'멘제이 데키마스카?', tip:'여권 보여주면 5,500엔 이상 구매 시 소비세 면제. Visit Japan Web에 면세 등록하면 더 편해요'},
+  {cat:'shop', icon:'💳', ko:'현금으로 낼게요', jp:'現金で払います', roma:'겐킨데 하라이마스', tip:'일본은 현금 선호 가게 많으니 현금 준비는 필수!'},
+
+  // 이동
+  {cat:'move', icon:'🗺', ko:'~에 가고 싶어요', jp:'〇〇に行きたいです', roma:'〇〇니 이키타이데스', tip:'목적지 이름을 앞에 넣으면 돼요. 지도 보여주면 더 확실해요'},
+  {cat:'move', icon:'🚆', ko:'~까지 표 한 장 주세요', jp:'〇〇まで一枚ください', roma:'〇〇마데 이치마이 쿠다사이', tip:'이코카 카드 있으면 자동이라 쓸 일 없지만 알아두면 편해요'},
+  {cat:'move', icon:'🚌', ko:'이 버스 ~에 가나요?', jp:'このバスは〇〇に行きますか？', roma:'코노 바스와 〇〇니 이키마스카?', tip:'교토 버스 탈 때 유용해요. 기사님께 물어보세요'},
+  {cat:'move', icon:'🚕', ko:'~까지 가주세요', jp:'〇〇までお願いします', roma:'〇〇마데 오네가이시마스', tip:'택시 탈 때 사용. 교토 택시는 자동문이라 절대 직접 열지 마세요!'},
+  {cat:'move', icon:'❓', ko:'여기가 어디예요?', jp:'ここはどこですか？', roma:'코코와 도코데스카?', tip:'길 잃었을 때. 지도 보여주면서 "ここですか？(코코데스카?)"라고 하면 더 효과적'},
+  {cat:'move', icon:'🚶', ko:'걸어서 갈 수 있나요?', jp:'歩いて行けますか？', roma:'아루이테 이케마스카?', tip:'걸어서 갈 수 있는 거리인지 확인할 때'},
+  {cat:'move', icon:'📍', ko:'지도에서 여기가 어디예요?', jp:'地図でここはどこですか？', roma:'치즈데 코코와 도코데스카?', tip:'구글 지도를 보여주며 현 위치 확인할 때'},
+  {cat:'move', icon:'🔄', ko:'환승은 어디서 해요?', jp:'乗り換えはどこですか？', roma:'노리카에와 도코데스카?', tip:'지하철 환승 헷갈릴 때 역 직원에게 물어보세요'},
+
+  // 숙소
+  {cat:'hotel', icon:'🏨', ko:'체크인 부탁드립니다', jp:'チェックインをお願いします', roma:'체크인오 오네가이시마스', tip:'예약 확인증과 여권을 함께 제시하면 돼요'},
+  {cat:'hotel', icon:'🔑', ko:'체크아웃 부탁드립니다', jp:'チェックアウトをお願いします', roma:'체크아웃오 오네가이시마스', tip:'체크아웃 시 키 카드 반납 잊지 마세요'},
+  {cat:'hotel', icon:'🧳', ko:'짐을 맡겨도 될까요?', jp:'荷物を預かってもらえますか？', roma:'니모츠오 아즈캇테 모라에마스카?', tip:'체크인 전이나 체크아웃 후 짐 맡길 때 유용'},
+  {cat:'hotel', icon:'🛁', ko:'수건 더 주세요', jp:'タオルをもう一枚ください', roma:'타오루오 모우 이치마이 쿠다사이', tip:'어메니티 추가 요청할 때도 비슷하게 사용'},
+  {cat:'hotel', icon:'🔧', ko:'방에 문제가 있어요', jp:'部屋に問題があります', roma:'헤야니 몬다이가 아리마스', tip:'에어컨=에아콘, 변기=토이레, 수도=수이도, TV=테레비'},
+  {cat:'hotel', icon:'📶', ko:'와이파이 비밀번호가 뭐예요?', jp:'Wi-Fiのパスワードを教えてください', roma:'와이파이노 파스와도오 오시에테 쿠다사이', tip:'호텔 프런트에서 물어보세요'},
+  {cat:'hotel', icon:'🌙', ko:'체크아웃 시간이 몇 시예요?', jp:'チェックアウトは何時ですか？', roma:'체크아웃와 난지데스카?', tip:'늦게 나가야 할 때 레이트 체크아웃 가능한지도 같이 물어보세요'},
+
+  // 긴급
+  {cat:'emergency', icon:'🚨', ko:'도와주세요!', jp:'助けてください！', roma:'타스케테 쿠다사이!', tip:'긴급 상황에서 크게 외치세요'},
+  {cat:'emergency', icon:'🚒', ko:'119 불러주세요', jp:'119番を呼んでください', roma:'햐쿠쥬쿠방오 욘데 쿠다사이', tip:'일본 응급번호는 119(구급차·소방), 경찰은 110'},
+  {cat:'emergency', icon:'🏥', ko:'병원에 가고 싶어요', jp:'病院に行きたいです', roma:'뵤인니 이키타이데스', tip:'머리=아타마, 배=오나카, 다리=아시, 팔=우데'},
+  {cat:'emergency', icon:'💊', ko:'여기가 아파요', jp:'ここが痛いです', roma:'코코가 이타이데스', tip:'아픈 곳을 손으로 가리키면서 말하세요'},
+  {cat:'emergency', icon:'👜', ko:'가방을 잃어버렸어요', jp:'カバンをなくしました', roma:'카반오 나쿠시마시타', tip:'분실물 센터=와스레모노 센타. 역이나 경찰에 신고하세요'},
+  {cat:'emergency', icon:'💳', ko:'카드를 잃어버렸어요', jp:'カードをなくしました', roma:'카도오 나쿠시마시타', tip:'즉시 카드사에 분실 신고하세요. 트래블월렛은 앱에서 즉시 정지 가능'},
+  {cat:'emergency', icon:'🚔', ko:'경찰을 불러주세요', jp:'警察を呼んでください', roma:'케이사츠오 욘데 쿠다사이', tip:'일본 경찰 긴급전화: 110'},
+  {cat:'emergency', icon:'🇰🇷', ko:'한국 대사관에 연락하고 싶어요', jp:'韓国大使館に連絡したいです', roma:'칸코쿠 타이시칸니 렌라쿠 시타이데스', tip:'오사카 한국 총영사관: +81-6-6213-1401'},
+];
+
+
+var words = [
+  // 음식 단어
+  {cat:'wfood', icon:'🥩', ko:'소고기', jp:'牛肉', roma:'규니쿠', tip:'야키니쿠 메뉴판에서 자주 등장'},
+  {cat:'wfood', icon:'🐷', ko:'돼지고기', jp:'豚肉', roma:'부타니쿠', tip:'돈카츠(豚カツ)의 돈이 바로 이것'},
+  {cat:'wfood', icon:'🐔', ko:'닭고기', jp:'鶏肉', roma:'토리니쿠', tip:'야키토리(焼き鳥)의 토리'},
+  {cat:'wfood', icon:'🐟', ko:'생선', jp:'魚', roma:'사카나', tip:'메뉴판에서 魚료리(사카나 료리)는 생선 요리'},
+  {cat:'wfood', icon:'🦐', ko:'새우', jp:'海老', roma:'에비', tip:'알레르기 있으면 꼭 체크'},
+  {cat:'wfood', icon:'🦑', ko:'오징어', jp:'イカ', roma:'이카', tip:'이카야키=오징어구이'},
+  {cat:'wfood', icon:'🐙', ko:'문어', jp:'タコ', roma:'타코', tip:'타코야키의 타코가 바로 문어'},
+  {cat:'wfood', icon:'🥚', ko:'계란', jp:'卵', roma:'타마고', tip:'타마고 = 계란. 날계란=나마타마고'},
+  {cat:'wfood', icon:'🍚', ko:'밥', jp:'ご飯', roma:'고한', tip:'라이스=라이스로도 통용'},
+  {cat:'wfood', icon:'🍜', ko:'면', jp:'麺', roma:'멘', tip:'라멘·우동·소바 모두 麺 계열'},
+  {cat:'wfood', icon:'🔥', ko:'매운', jp:'辛い', roma:'카라이', tip:'한국처럼 매운 음식 많지 않아요'},
+  {cat:'wfood', icon:'🍬', ko:'단', jp:'甘い', roma:'아마이', tip:'디저트 고를 때 유용'},
+  {cat:'wfood', icon:'🧂', ko:'짠', jp:'しょっぱい', roma:'쇼파이', tip:'간장=쇼유, 된장=미소'},
+  {cat:'wfood', icon:'🫙', ko:'기름진', jp:'脂っこい', roma:'아부랏코이', tip:'위에 부담될 때 참고'},
+  {cat:'wfood', icon:'🌡', ko:'뜨거운', jp:'熱い', roma:'아츠이', tip:'음식이 뜨거울 때 직원이 이 말 해요'},
+  {cat:'wfood', icon:'❄️', ko:'차가운', jp:'冷たい', roma:'츠메타이', tip:'차가운 음료=츠메타이 노미모노'},
+  {cat:'wfood', icon:'🍶', ko:'정식 (세트)', jp:'定食', roma:'테이쇼쿠', tip:'밥·국·반찬 포함 세트. 가성비 최고!'},
+  {cat:'wfood', icon:'🍱', ko:'도시락', jp:'お弁当', roma:'오벤토', tip:'편의점 도시락 퀄리티 진짜 좋아요'},
+  {cat:'wfood', icon:'🥗', ko:'채소', jp:'野菜', roma:'야사이', tip:'야사이이타메=채소볶음'},
+  {cat:'wfood', icon:'🧃', ko:'음료', jp:'飲み物', roma:'노미모노', tip:'노미모노 = 마실 것'},
+
+  // 교통 단어
+  {cat:'wmove', icon:'🚪', ko:'출구', jp:'出口', roma:'데구치', tip:'역 안내판에서 가장 많이 보는 단어'},
+  {cat:'wmove', icon:'🚶', ko:'입구', jp:'入口', roma:'이리구치', tip:'출구와 세트로 기억하세요'},
+  {cat:'wmove', icon:'🔄', ko:'환승', jp:'乗り換え', roma:'노리카에', tip:'지하철 노선도에서 자주 보임'},
+  {cat:'wmove', icon:'🎫', ko:'개찰구', jp:'改札口', roma:'카이사츠구치', tip:'이코카 카드 태그하는 곳'},
+  {cat:'wmove', icon:'➡️', ko:'방향', jp:'方面', roma:'호멘', tip:'난바 방면=난바호멘. 열차 행선지 표시'},
+  {cat:'wmove', icon:'🚆', ko:'급행', jp:'急行', roma:'큐코', tip:'급행=큐코, 특급=토큐, 각역정차=카쿠에키'},
+  {cat:'wmove', icon:'⏱', ko:'종점', jp:'終点', roma:'슈텐', tip:'난카이 공항급행은 난바가 종점'},
+  {cat:'wmove', icon:'🅿️', ko:'승강장', jp:'ホーム', roma:'호무', tip:'몇 번 홈=난방 호무'},
+  {cat:'wmove', icon:'📅', ko:'시간표', jp:'時刻表', roma:'지코쿠효', tip:'역 벽에 붙어있는 열차 시간표'},
+  {cat:'wmove', icon:'🚌', ko:'버스 정류장', jp:'バス停', roma:'바스테이', tip:'교토 버스는 바스테이 찾는게 포인트'},
+  {cat:'wmove', icon:'🚕', ko:'택시 승강장', jp:'タクシー乗り場', roma:'타쿠시노리바', tip:'역 앞에 보통 있어요'},
+  {cat:'wmove', icon:'🔒', ko:'물품보관함', jp:'コインロッカー', roma:'코인 록카', tip:'짐 맡길 때. 이코카 카드로 결제 가능'},
+  {cat:'wmove', icon:'⚠️', ko:'운행 중단', jp:'運休', roma:'운큐', tip:'台風(태풍)이나 사고 시 자주 보임'},
+  {cat:'wmove', icon:'🔢', ko:'~번 출구', jp:'〇番出口', roma:'〇반 데구치', tip:'1번=이치방, 2번=니방, 3번=산방'},
+
+  // 쇼핑 단어
+  {cat:'wshop', icon:'💸', ko:'할인', jp:'割引', roma:'와리비키', tip:'10% 할인=쥬파센 와리비키'},
+  {cat:'wshop', icon:'⭐', ko:'한정판', jp:'限定', roma:'겐테이', tip:'오사카 한정=오사카겐테이. 기념품 고를 때 체크!'},
+  {cat:'wshop', icon:'❌', ko:'품절', jp:'売り切れ', roma:'우리키레', tip:'하브스 밀크레이프 같은 인기 품목에서 자주 봄'},
+  {cat:'wshop', icon:'🆕', ko:'신상품', jp:'新商品', roma:'신쇼힌', tip:'편의점·드럭스토어 신상 확인할 때'},
+  {cat:'wshop', icon:'📦', ko:'세트', jp:'セット', roma:'셋토', tip:'세트 구매 시 할인되는 경우 많아요'},
+  {cat:'wshop', icon:'🔢', ko:'사이즈', jp:'サイズ', roma:'사이즈', tip:'S·M·L·XL 그대로 통용'},
+  {cat:'wshop', icon:'🎨', ko:'색상', jp:'色', roma:'이로', tip:'빨강=아카, 파랑=아오, 흰색=시로, 검정=쿠로'},
+  {cat:'wshop', icon:'🛒', ko:'장바구니', jp:'カゴ', roma:'카고', tip:'마트 입구에서 카고 들고 들어가면 돼요'},
+  {cat:'wshop', icon:'🛍', ko:'봉투', jp:'袋', roma:'후쿠로', tip:'일본은 봉투 유료. 필요하면 봉투 주세요=후쿠로 쿠다사이'},
+  {cat:'wshop', icon:'🔖', ko:'가격표', jp:'値札', roma:'네후다', tip:'네후다 없으면 가격 물어봐야 해요'},
+  {cat:'wshop', icon:'↩️', ko:'환불', jp:'返金', roma:'헨킨', tip:'영수증 필수. 환불은 까다로운 편이에요'},
+  {cat:'wshop', icon:'🏷', ko:'세일', jp:'セール', roma:'세루', tip:'시즌오프 세일=시즌오후 세루'},
+  {cat:'wshop', icon:'🎁', ko:'선물용', jp:'贈り物用', roma:'오쿠리모노요', tip:'포장 요청할 때 "오쿠리모노요니 오네가이시마스"'},
+
+  // 관광 단어
+  {cat:'wtour', icon:'🎟', ko:'입장료', jp:'入場料', roma:'뉴죠료', tip:'무료=무료(무료). 그대로 무료라고 읽음'},
+  {cat:'wtour', icon:'📸', ko:'촬영 금지', jp:'撮影禁止', roma:'사츠에이 킨시', tip:'일부 사찰·박물관에서 자주 보임'},
+  {cat:'wtour', icon:'🚭', ko:'금지', jp:'禁止', roma:'킨시', tip:'~금지=~킨시. 음식물=인쇼쿠, 흡연=키츠엔'},
+  {cat:'wtour', icon:'🕐', ko:'영업시간', jp:'営業時間', roma:'에이교 지칸', tip:'定休日(테이큐비)=정기휴일'},
+  {cat:'wtour', icon:'📅', ko:'휴관일', jp:'休館日', roma:'큐칸비', tip:'박물관·수족관 휴관일 미리 확인'},
+  {cat:'wtour', icon:'🗺', ko:'안내도', jp:'案内図', roma:'안나이즈', tip:'관광지 입구에 있는 지도'},
+  {cat:'wtour', icon:'♿', ko:'엘리베이터', jp:'エレベーター', roma:'에레베타', tip:'큰 짐 있을 때 유용'},
+  {cat:'wtour', icon:'🚻', ko:'화장실', jp:'トイレ', roma:'토이레', tip:'어디서든 "토이레 도코데스카?"'},
+  {cat:'wtour', icon:'🏛', ko:'매표소', jp:'チケット売り場', roma:'치켓토 우리바', tip:'티켓=치켓토. 매표소 위치 물어볼 때'},
+  {cat:'wtour', icon:'👨‍👩‍👧', ko:'단체 할인', jp:'団体割引', roma:'단타이 와리비키', tip:'보통 15명 이상이면 단체 할인 적용'},
+  {cat:'wtour', icon:'🌐', ko:'외국어 팸플릿', jp:'外国語パンフレット', roma:'가이코쿠고 팜후렛토', tip:'한국어=칸코쿠고. 한국어 팸플릿 있는 곳 많아요'},
+  {cat:'wtour', icon:'🎫', ko:'학생 할인', jp:'学生割引', roma:'각세이 와리비키', tip:'학생증=각세이쇼'},
+
+  // 편의점 단어
+  {cat:'wcvs', icon:'🏪', ko:'편의점', jp:'コンビニ', roma:'콘비니', tip:'세븐일레븐·패밀리마트·로손이 3대 편의점'},
+  {cat:'wcvs', icon:'🍱', ko:'도시락', jp:'お弁当', roma:'오벤토', tip:'계산 시 "あたためますか？(아타타메마스카?=데워드릴까요?)" 물어봐요'},
+  {cat:'wcvs', icon:'🌡', ko:'데워드릴까요?', jp:'温めますか？', roma:'아타타메마스카?', tip:'네=하이, 괜찮아요=다이죠부데스'},
+  {cat:'wcvs', icon:'🥢', ko:'젓가락 필요하세요?', jp:'お箸はご利用ですか？', roma:'오하시와 고리요데스카?', tip:'필요하면 하이, 필요 없으면 다이죠부데스'},
+  {cat:'wcvs', icon:'💳', ko:'포인트 카드 있으세요?', jp:'ポイントカードはお持ちですか？', roma:'포인토 카도와 오모치데스카?', tip:'없으면 "아리마센"이라고 하면 돼요'},
+  {cat:'wcvs', icon:'👜', ko:'봉투 필요하세요?', jp:'袋はご利用ですか？', roma:'후쿠로와 고리요데스카?', tip:'필요하면 "하이", 필요 없으면 "다이죠부데스"'},
+  {cat:'wcvs', icon:'💴', ko:'현금', jp:'現金', roma:'겐킨', tip:'편의점은 대부분 카드·이코카 모두 가능'},
+  {cat:'wcvs', icon:'🏧', ko:'ATM', jp:'ATM', roma:'에이티엠', tip:'세븐일레븐 ATM은 해외카드 OK. 수수료 약 110엔'},
+  {cat:'wcvs', icon:'📮', ko:'택배 보내기', jp:'宅配便', roma:'타쿠하이빈', tip:'편의점에서 짐 먼저 숙소로 보내기 가능 (야마토 운수)'},
+  {cat:'wcvs', icon:'🖨', ko:'복사·인쇄', jp:'コピー', roma:'코피', tip:'편의점 복합기로 프린트 가능. 여행 서류 급할 때 유용'},
+  {cat:'wcvs', icon:'🧾', ko:'영수증', jp:'レシート', roma:'레시토', tip:'면세 신청용 영수증 보관 필수'},
+  {cat:'wcvs', icon:'🆓', ko:'무료', jp:'無料', roma:'무료', tip:'일본어로도 무료라고 읽어요! 그대로 통용'},
+];
+
+var wordCatColors = {
+  wfood:'#FFF3E0', wmove:'#E3F2FD', wshop:'#F3E5F5', wtour:'#E8F5E9', wcvs:'#FFF8E1'
+};
+var wordCatTextColors = {
+  wfood:'#E65100', wmove:'#1565C0', wshop:'#6A1B9A', wtour:'#2E7D32', wcvs:'#F57F17'
+};
+var wordCatNames = {
+  wfood:'음식단어', wmove:'교통단어', wshop:'쇼핑단어', wtour:'관광단어', wcvs:'편의점'
+};
+
+var catColors = {
+  basic:'#E6F1FB', food:'#FAEEDA', shop:'#EEEDFE', move:'#EAF3DE', hotel:'#F0EEF8', emergency:'#FAECE7',
+  wfood:'#FFF3E0', wmove:'#E3F2FD', wshop:'#F3E5F5', wtour:'#E8F5E9', wcvs:'#FFF8E1'
+};
+var catTextColors = {
+  basic:'#0C447C', food:'#633806', shop:'#3C3489', move:'#27500A', hotel:'#4A3570', emergency:'#712B13',
+  wfood:'#E65100', wmove:'#1565C0', wshop:'#6A1B9A', wtour:'#2E7D32', wcvs:'#F57F17'
+};
+var catNames = {
+  basic:'기본인사', food:'식당', shop:'쇼핑', move:'이동', hotel:'숙소', emergency:'긴급',
+  wfood:'음식단어', wmove:'교통단어', wshop:'쇼핑단어', wtour:'관광단어', wcvs:'편의점'
+};
+
+function makeCard(p, idx) {
+  var bg = catColors[p.cat] || '#f0f0eb';
+  var tc = catTextColors[p.cat] || '#333';
+  return '<div class="phrase-card" onclick="toggleCard(this)" data-idx="'+idx+'">' +
+    '<span class="cat-badge" style="background:'+bg+';color:'+tc+'">'+p.icon+' '+catNames[p.cat]+'</span>' +
+    '<div class="phrase-top">' +
+    '<div><div class="phrase-ko">'+p.ko+'</div>' +
+    '<div class="phrase-jp">'+p.jp+'</div>' +
+    '<div class="phrase-roma">'+p.roma+'</div></div>' +
+    '<div class="flip-hint">탭 ▼</div></div>' +
+    '<div class="phrase-tip">💡 '+p.tip+'</div>' +
+    '</div>';
+}
+
+function makeCatCard(p, idx) {
+  return '<div class="phrase-card" onclick="toggleCard(this)" data-idx="'+idx+'">' +
+    '<div class="phrase-top">' +
+    '<div><div class="phrase-ko">'+p.icon+' '+p.ko+'</div>' +
+    '<div class="phrase-jp">'+p.jp+'</div>' +
+    '<div class="phrase-roma">'+p.roma+'</div></div>' +
+    '<div class="flip-hint">탭 ▼</div></div>' +
+    '<div class="phrase-tip">💡 '+p.tip+'</div>' +
+    '</div>';
+}
+
+function toggleCard(card) {
+  card.classList.toggle('flipped');
+}
+
+// 전체 탭 렌더
+function renderAll(list) {
+  var html = '';
+  list.forEach(function(p, i) { html += makeCard(p, i); });
+  document.getElementById('phraseList').innerHTML = html || '<div class="empty">검색 결과가 없어요 😅</div>';
+}
+
+// 카테고리 탭 렌더
+function renderCat(cat) {
+  var list = phrases.filter(function(p){ return p.cat === cat; });
+  var html = '';
+  list.forEach(function(p, i) { html += makeCatCard(p, i); });
+  document.getElementById('list-'+cat).innerHTML = html;
+}
+
+
+// 단어 카드 렌더
+function makeWordCard(p) {
+  var bg = catColors[p.cat] || '#f0f0eb';
+  var tc = catTextColors[p.cat] || '#333';
+  return '<div class="phrase-card" onclick="toggleCard(this)">' +
+    '<div class="phrase-top">' +
+    '<div>' +
+    '<div class="phrase-ko">'+p.icon+' '+p.ko+'</div>' +
+    '<div class="phrase-jp" style="font-size:20px">'+p.jp+'</div>' +
+    '<div class="phrase-roma">'+p.roma+'</div>' +
+    '</div>' +
+    '<div class="flip-hint">탭 ▼</div>' +
+    '</div>' +
+    '<div class="phrase-tip">💡 '+p.tip+'</div>' +
+    '</div>';
+}
+function renderWords(cat) {
+  var list = words.filter(function(p){ return p.cat === cat; });
+  var html = '';
+  list.forEach(function(p) { html += makeWordCard(p); });
+  document.getElementById('list-'+cat).innerHTML = html;
+}
+// 검색
+function searchPhrases(q) {
+  q = q.trim().toLowerCase();
+  var allItems = phrases.concat(words);
+  var filtered = q ? allItems.filter(function(p){
+    return p.ko.includes(q) || p.jp.includes(q) || p.roma.includes(q);
+  }) : allItems;
+  renderAll(filtered);
+}
+
+// 탭 전환
+var TABS = ['all','basic','food','shop','move','hotel','emergency','wfood','wmove','wshop','wtour','wcvs','flash'];
+var currentMain = 'phrase';
+
+function showMain(main, btn) {
+  currentMain = main;
+  // 메인 버튼 active
+  document.querySelectorAll('.main-btn').forEach(function(b){ b.classList.remove('active'); });
+  if(btn) btn.classList.add('active');
+  // 서브탭 보이기/숨기기
+  document.getElementById('subnav-phrase').style.display = (main==='phrase') ? 'flex' : 'none';
+  document.getElementById('subnav-word').style.display = (main==='word') ? 'flex' : 'none';
+  // 해당 메인의 첫 탭으로 이동
+  if(main==='phrase') {
+    var firstSub = document.querySelector('#subnav-phrase .sub-btn');
+    showTab('all', firstSub, 'phrase');
+  } else if(main==='word') {
+    var firstSub = document.querySelector('#subnav-word .sub-btn');
+    showTab('wfood', firstSub, 'word');
+  } else if(main==='flash') {
+    // 모든 섹션 숨기기
+    TABS.forEach(function(t){
+      var el = document.getElementById('tab-'+t);
+      if(el) el.style.display = 'none';
+    });
+    document.getElementById('tab-flash').style.display = 'block';
+    document.getElementById('subnav-phrase').style.display = 'none';
+    document.getElementById('subnav-word').style.display = 'none';
+    initFlash();
+  }
+  // 하단 버튼 동기화
+  document.querySelectorAll('.bnav-btn').forEach(function(b){ b.classList.remove('active'); });
+  var bnavMap = {'phrase':0, 'word':1, 'flash':4};
+  var bb = document.querySelectorAll('.bnav-btn');
+  if(bnavMap[main] !== undefined && bb[bnavMap[main]]) bb[bnavMap[main]].classList.add('active');
+}
+function showTab(id, btn) {
+  TABS.forEach(function(t){
+    var el = document.getElementById('tab-'+t);
+    if(el) el.style.display = (t===id) ? 'block' : 'none';
+  });
+  document.querySelectorAll('.nav-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.querySelectorAll('.bnav-btn').forEach(function(b){ b.classList.remove('active'); });
+  if(btn) {
+    btn.classList.add('active');
+    var idx = TABS.indexOf(id);
+    var nb = document.querySelectorAll('.nav-btn');
+    if(nb[idx]) nb[idx].classList.add('active');
+    var bb = document.querySelectorAll('.bnav-btn');
+    // 하단 버튼 동기화
+    var bnavMap = {all:0, food:1, move:2, shop:3, flash:4};
+    if(bnavMap[id] !== undefined && bb[bnavMap[id]]) bb[bnavMap[id]].classList.add('active');
+  }
+  if(id === 'flash') initFlash();
+  document.querySelector('.nav-wrap').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+// 플래시카드
+var flashList = [], flashIdx = 0, flashCorrect = 0, flashRevealed = false;
+function initFlash() {
+  flashList = phrases.concat(words).slice().sort(function(){ return Math.random()-.5; });
+  flashIdx = 0; flashCorrect = 0;
+  updateFlash();
+}
+function updateFlash() {
+  if(flashIdx >= flashList.length) {
+    document.getElementById('flashQ').textContent = '🎉 완료! ' + flashCorrect + '/' + flashList.length + '개 맞았어요!';
+    document.getElementById('flashHint').textContent = '다시 시작하려면 탭하세요';
+    document.getElementById('flashA').classList.remove('show');
+    document.getElementById('flashFill').style.width = '100%';
+    document.getElementById('flashProgress').textContent = flashList.length + ' / ' + flashList.length;
+    flashRevealed = false;
+    document.getElementById('flashCard').onclick = function(){ initFlash(); };
+    return;
+  }
+  var p = flashList[flashIdx];
+  document.getElementById('flashQ').textContent = p.ko;
+  document.getElementById('flashHint').textContent = p.icon + ' ' + catNames[p.cat] + ' · 탭해서 정답 확인';
+  document.getElementById('flashJP').textContent = p.jp;
+  document.getElementById('flashRoma').textContent = p.roma;
+  document.getElementById('flashA').classList.remove('show');
+  document.getElementById('flashFill').style.width = (flashIdx / flashList.length * 100) + '%';
+  document.getElementById('flashProgress').textContent = (flashIdx+1) + ' / ' + flashList.length;
+  flashRevealed = false;
+  document.getElementById('flashCard').onclick = revealFlash;
+}
+function revealFlash() {
+  if(flashRevealed) return;
+  document.getElementById('flashA').classList.add('show');
+  flashRevealed = true;
+}
+function nextFlash(correct) {
+  if(!flashRevealed) { revealFlash(); return; }
+  if(correct) flashCorrect++;
+  flashIdx++;
+  updateFlash();
+}
+
+// 초기화
+TABS.forEach(function(t){
+  var el = document.getElementById('tab-'+t);
+  if(el) el.style.display = (t==='all') ? 'block' : 'none';
+});
+renderAll(phrases);
+['basic','food','shop','move','hotel','emergency'].forEach(function(cat){ renderCat(cat); });
+['wfood','wmove','wshop','wtour','wcvs'].forEach(function(cat){ renderWords(cat); });
+initFlash();
+</script>
+</body>
+</html>
