@@ -32,7 +32,8 @@ body{background:var(--bg);color:var(--text);font-family:"Noto Sans KR",sans-seri
 
 
 .main-nav{border-bottom:none!important;padding:0 8px}
-.main-btn{font-size:14px!important;font-weight:500!important;padding:12px 20px 10px!important}
+.main-btn{font-size:14px!important;font-weight:500!important;padding:12px 20px 10px!important;border-top:none!important;border-left:none!important;border-right:none!important;border-bottom:3px solid transparent!important;color:var(--muted)!important;background:none!important}
+.main-btn.active{color:var(--accent)!important;border-top:none!important;border-left:none!important;border-right:none!important;border-bottom:3px solid var(--accent)!important;background:none!important}
 .sub-nav{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 8px 0;border-top:0.5px solid var(--border);background:var(--bg3)}
 .sub-nav::-webkit-scrollbar{display:none}
 .sub-btn{flex-shrink:0;padding:8px 12px;font-size:11px;color:var(--muted);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:"Noto Sans KR",sans-serif;white-space:nowrap;transition:all .2s}
@@ -457,8 +458,12 @@ var currentMain = 'phrase';
 
 function showMain(main, btn) {
   currentMain = main;
-  // 메인 버튼 active
-  document.querySelectorAll('.main-btn').forEach(function(b){ b.classList.remove('active'); });
+  // 메인 버튼 active - 전부 초기화 후 클릭한 것만 active
+  document.querySelectorAll('.main-btn').forEach(function(b){
+    b.classList.remove('active');
+    b.style.color = '';
+    b.style.borderBottomColor = '';
+  });
   if(btn) btn.classList.add('active');
   // 서브탭 보이기/숨기기
   document.getElementById('subnav-phrase').style.display = (main==='phrase') ? 'flex' : 'none';
@@ -487,24 +492,17 @@ function showMain(main, btn) {
   var bb = document.querySelectorAll('.bnav-btn');
   if(bnavMap[main] !== undefined && bb[bnavMap[main]]) bb[bnavMap[main]].classList.add('active');
 }
-function showTab(id, btn) {
+function showTab(id, btn, mainCtx) {
   TABS.forEach(function(t){
     var el = document.getElementById('tab-'+t);
     if(el) el.style.display = (t===id) ? 'block' : 'none';
   });
-  document.querySelectorAll('.nav-btn').forEach(function(b){ b.classList.remove('active'); });
-  document.querySelectorAll('.bnav-btn').forEach(function(b){ b.classList.remove('active'); });
-  if(btn) {
-    btn.classList.add('active');
-    var idx = TABS.indexOf(id);
-    var nb = document.querySelectorAll('.nav-btn');
-    if(nb[idx]) nb[idx].classList.add('active');
-    var bb = document.querySelectorAll('.bnav-btn');
-    // 하단 버튼 동기화
-    var bnavMap = {all:0, food:1, move:2, shop:3, flash:4};
-    if(bnavMap[id] !== undefined && bb[bnavMap[id]]) bb[bnavMap[id]].classList.add('active');
+  // sub-btn만 초기화 (main-btn은 건드리지 않음)
+  if(mainCtx) {
+    var subNav = document.getElementById('subnav-'+mainCtx);
+    if(subNav) subNav.querySelectorAll('.sub-btn').forEach(function(b){ b.classList.remove('active'); });
   }
-  if(id === 'flash') initFlash();
+  if(btn) btn.classList.add('active');
   document.querySelector('.nav-wrap').scrollIntoView({behavior:'smooth', block:'start'});
 }
 
